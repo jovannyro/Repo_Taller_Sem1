@@ -17,6 +17,7 @@ router.get('/', (req,res) => {
     res.send("El inicio de mi API")
 });
 
+
 router.get('/tarea', (req, res) => {
     TareaSchema.find(function(err, datos){
         if(err){
@@ -31,9 +32,18 @@ router.get('/tarea', (req, res) => {
 
 router.post('/tarea', (req,res) => {
     let nuevaTarea = new TareaSchema({
-        idTarea: req.body.id,
-        nombreTarea: req.body.nombre,
-        detalleTarea: req.body.detalle,
+        idPersona: req.body.id,
+        tipodocumento: req.body.tipodocumento,
+        documento: req.body.documento,
+        nombres: req.body.nombres,
+        apellidos: req.body.apellidos,
+        direccion: req.body.direccion,
+        correo: req.body.correo,
+        fijo: req.body.fijo,
+        celular: req.body.celular,
+        sitioweb: req.body.sitioweb,
+        descripcion: req.body.descripcion,
+       
     });
 
     nuevaTarea.save(function(err, datos){
